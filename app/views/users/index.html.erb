@@ -1,3 +1,4 @@
+<table class="user-index">
 <h1>Users</h1>
 
 <table>
@@ -5,12 +6,13 @@
      <tr>
      <th>image</th>
      <th>name</th>
+     <th></th>
      <th　colspan="2"></th>
      </tr>
    </thead>
 
    <tbody>
-    <% @users.each do |book| %>
+    <% @users.each do |user| %>
      <tr>
      <td><%= user.profile_image %></td>
      <td><%= user.name %></td>
