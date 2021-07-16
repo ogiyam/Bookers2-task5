@@ -1,8 +1,58 @@
- <h1>Book detail</h1>
-    <table class="book-show">
+  <div class="container">
+ <div class="row">
+  <div class="col-lg-4">
+  <table class="table-user">
+  <h2>User info</h2>
+  <thead>
+    <th>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%>
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= @user.introduction %></th>
+    </tr>
+    <tr>
+      <th colspan="2">
+        <%= link_to "edit", edit_user_path(current_user), class: "btn btn-secondary"  %>
+      </th>
+    </tr>
+  </tbody>
+ </table>
+
+<h2>New book</h2>
+<%= form_with model: @new_book, local:true do |f| %>
+  <% if @new_book.errors.any? %>
+      <p class="err_head"><%= @new_book.errors.count %> errors prohibited this book from being saved:</p>
+      <ul class="err_list">
+        <% @new_book.errors.full_messages.each do |messages| %>
+          <li><%= messages %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
+    <%= f.label :Title %><br>
+    <%= f.text_field :title%><br>
+
+  	<%= f.label :Opinion %><br>
+    <%= f.text_area :opinion%><br>
+
+    <%= f.submit 'Create Book', class: "btn btn-primary col-xs-12" %>
+<% end %>
+</div>
+
+ <div class="col-lg-8">
+  <table class="table book-show">
+   <h1>Book detail</h1>
+    <tbody>
       <tr>
-        <td><%= attachment_image_tag @user, :profile_image, :fill, 30, 30, fallback: "no_image.jpg"%></td>
-        <td><%= link_to @user.name, user_path(@user) %></td>
+        <td><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "50x50" %><br>
+        <%= link_to @user.name, user_path(@user) %></td>
         <td><%= @book.title %></td>
         <td><%= @book.opinion %></td>
         <% if @book.user_id == current_user.id %>
@@ -10,4 +60,6 @@
           <td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"}, class:"btn btn-danger" %></td>
         <% end %>
       </tr>
-    </table>
+    </tbody>
+  </table>
+  </div>

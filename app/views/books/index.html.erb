@@ -1,10 +1,63 @@
-<table class="table book-index">
+<div class="notice"><%= flash[:notice] %></div>
+
+
+<div class="container">
+ <div class="row">
+  <div class="col-lg-4">
+  <table class="table-user">
+  <h2>User info</h2>
+  <thead>
+    <th>
+     <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "100x100" %><br>
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= @user.introduction %></th>
+    </tr>
+    <tr>
+      <th>
+         <span class="glyphicon glyphicon-fas fa-user-cog" aria-hidden="true"></span>
+        <%= link_to , edit_user_path(current_user), class: "btn btn-outline-secondary btn-block"  %>
+      </th>
+    </tr>
+  </tbody>
+ </table>
+
+<h2>New book</h2>
+<%= form_with model: @new_book, local:true do |f| %>
+  <% if @new_book.errors.any? %>
+      <p class="err_head"><%= @new_book.errors.count %> errors prohibited this book from being saved:</p>
+      <ul class="err_list">
+        <% @new_book.errors.full_messages.each do |messages| %>
+          <li><%= messages %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
+    <%= f.label :Title %><br>
+    <%= f.text_field :title%><br>
+
+  	<%= f.label :Opinion %><br>
+    <%= f.text_area :opinion%><br>
+
+     <%= f.submit 'Create Book', class: "btn btn-primary col-xs-12" %>
+<% end %>
+</div>
+
+<div class="col-lg-8">
+ <table class="table book-index">
  <h1>Books</h1>
    <thead>
+     <tr>
      <th></th>
      <th>Title</th>
      <th>Opinion</th>
-     <th　colspan="3"></th>
      </tr>
    </thead>
 
@@ -12,8 +65,8 @@
     <% @books.each do |book| %>
       <tr>
          <td>
-           <%= link_to user_path(book.user) do %>
-           <%= attachment_image_tag book.user, :profile_image, :fill, 50, 50,fallback: "no_image.jpg"%>
+           <%= link_to user_path(@user) do %>
+          <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "50x50" %>
            <% end %>
          </td>
          <td><%= link_to book.title, book_path(book.id) %></td>
@@ -22,47 +75,6 @@
       <% end %>
    </tbody>
  </table>
-
-
- <table class="table table-user">
-  <h2>User info</h2>
-  <thead>
-    <tr>
-      <%= attachment_image_tag @user, :profile_image, :fill, 1, 1, fallback: "no_image.jpg"%>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Name</th>
-      <th><% @user.name %></th>
-    </tr>
-    <tr>
-      <th>Introduction</th>
-      <th><%= @user.introduction %></th>
-    </tr>
-    <tr>
-      <th colspan="2">
-        <%= link_to edit_user_path(current_user), class:"btn btn-default btn-block" do %>
-      <% end %>
-      </th>
-    </tr>
-  </tbody>
- </table>
-
-
-<div class="New_book">
-<h2>New book</h2>
-<%= form_with model:@book, local:true do |f| %>
-
-    <%= f.label :Title %>
-    <%= f.text_field :title%>
-
-  	<%= f.label :Opinion %>
-    <%= f.text_area :opinion%>
-
-    <%= f.submit class: "btn btn-primary col-xs-12" %>
-<% end %>
-
 </div>
-
-
+</div>
+</div>
