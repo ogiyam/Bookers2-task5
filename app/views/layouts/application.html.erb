@@ -16,14 +16,17 @@
   <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
       <nav class="nav navbar-left">
-      <h4 class="title">Bookers</h4>
+        <%= link_to  root_path do %>
+         <h4 class="title">Bookers</h4>
+        <% end %>
       </nav>
       <nav>
-      <ul class="nav navbar-nav navbar-right">
-     <% if user_signed_in? %>
+       <ul class="nav navbar-nav navbar-right">
+       <% if user_signed_in? %>
+     <div class="d-flex flex-row bd-highlight mb-3">
       <li>
         <i class="fas fa-home"></i>
-        <%= link_to 'Home', books_path(current_user) %>
+        <%= link_to 'Home', users_path(current_user) %>
       </li>
       <li>
         <i class="fas fa-users"></i>
@@ -34,10 +37,12 @@
         <%= link_to 'Books', books_path %>
       </li>
       <li>
-        <i class="fas fa-sign-in-alt"></i>
+        <i class="fas fa-sign-out-alt"></i>
         <%= link_to "logout", destroy_user_session_path, method: :delete %>
       </li>
+      </div>
     <% else %>
+     <div class="d-flex flex-row bd-highlight mb-3">
       <li>
         <i class="fas fa-home"></i>
         <%= link_to 'Home', root_path %>
@@ -54,6 +59,7 @@
         <i class="fas fa-sign-in-alt"></i>
         <%= link_to "Log in", new_user_session_path %>
       </li>
+      </div>
     <% end %>
     </ul>
     </nav>

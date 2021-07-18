@@ -62,24 +62,53 @@ Backtrace:
 @import 'font-awesome';
 
 
+
+
 .navbar {
   width: 100%;
   color: white;
   background-color: #343a40;
-  display: inline-block;
 }
 
-.nav_navbar-nav_navbar-right{
+ul.nav li {
+  font-size: 18px;
+  padding: 9px;
   font-style: normal;
   text-decoration: none;
-  cursor: pointer;
   font-variant: normal;
+  color: white;
+}
+
+ul.nav a {
+  font-size: 18px;
+  font-style: normal;
+  text-decoration: none;
   color: white;
 }
 
 footer{
   width: 100%;
- 
   text-align: center;
   bottom: 0;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.table-user th {
+  padding: 5px;
+}
+
+.table-user tr {
+  border-top: 1px solid #dee2e6;
+}
+
+.table-user tr:nth-of-type(4) {
+  border: none;
+}
+
+h4.title{
+ text-decoration: none;
+ color: white;
 }
