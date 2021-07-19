@@ -1,15 +1,16 @@
 <div class="notice"><%= flash[:notice] %></div>
 
-<div class="container">
-    <div class="row">
-         <div class="col-lg-4">
-            <%= render 'users/user', user: @user %>
-           <h2>New book</h2>
-             <%= render 'books/book', new_book: @new_book %>
-         </div>
-<div class="col-lg-8">
-    　　　 <table class="table book-index">
-            <h1>Books</h1>
+<div class="container-fluid">
+ <div class="row">
+     <div class="col-md-3">
+          <%= render 'users/user', user: @user %>
+         <h2>New book</h2>
+          <%= render 'books/book', new_book: @new_book %>
+     </div>
+
+ <div class="col-md-8 offset-md-1">
+    <h1>Books</h1>
+    　　　<table class="table book-index">
               <thead>
                  <tr>
                     <th></th>

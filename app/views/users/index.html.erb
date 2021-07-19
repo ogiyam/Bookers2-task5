@@ -1,13 +1,17 @@
-<div class="container">
-     <div class="row">
-         <div class="col-lg-4">
-            <%= render 'users/user', user: @user %>
-           <h2>New book</h2>
-             <%= render 'books/book', new_book: @new_book %>
-         </div>
-<div class="col-lg-8">
-　　  　<table class="table user-index">
- 　　　      　　 <h1>Users</h1>
+<div class="notice"><%= flash[:notice] %></div>
+
+<div class="container-fluid">
+ <div class="row">
+     <div class="col-md-3">
+          <%= render 'users/user', user: @user %>
+         <h2>New book</h2>
+          <%= render 'books/book', new_book: @new_book %>
+     </div>
+
+
+ <div class="col-md-8 offset-md-1">
+  <h1>Users</h1>
+　　    <table class="table user-index">
  　　　      　　  <thead>
    　　      　　  <tr>
     　　　        　 <th>image</th>
@@ -15,7 +19,7 @@
   　　　　      　 　  <th></th>
   　　　           </tr>
               </thead>
-                 <tbody>
+              <tbody>
                    <% @users.each do |user| %>
                      <tr>
                        <td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "50x50" %><br>
@@ -23,8 +27,8 @@
                        <td><%= link_to "Show", user_path(user) %></td>
                      </tr>
                     <% end %>
-                 </tbody>
-         </table>
+              </tbody>
+        </table>
        </div>
     </div>
  </div>
