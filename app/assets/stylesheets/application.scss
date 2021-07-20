@@ -66,24 +66,29 @@ Backtrace:
 
 .navbar {
   width: 100%;
-  color: white;
+  hight: 10px;
   background-color: #343a40;
 }
 
-ul.nav li {
-  font-size: 18px;
-  padding: 9px;
-  font-style: normal;
-  text-decoration: none;
-  font-variant: normal;
+a.header-title{
+  font-size: 30px;
   color: white;
+  text-decoration: none;
+}
+
+.header-title:hover {
+  color: gray;
 }
 
 ul.nav a {
   font-size: 18px;
-  font-style: normal;
+  padding: 9px;
   text-decoration: none;
   color: white;
+}
+
+ul.nav a:hover {
+  color: gray;
 }
 
 footer{
@@ -94,9 +99,4 @@ footer{
 
 .field_with_errors {
   display: contents;
-}
-
-h4.title{
- text-decoration: none;
- color: white;
 }
