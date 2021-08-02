@@ -1,18 +1,4 @@
 /*
-Error: File to import not found or unreadable: bootstrap.
-        on line 16 of /home/ec2-user/environment/bookers2/app/assets/stylesheets/application.scss
-
-11:  * It is generally better to create a new file per style scope.
-12:  *
-13:  *= require_tree .
-14:  *= require_self
-15:  *\/
-16: @import "bootstrap";
-17: @import 'font-awesome-sprockets';
-18: @import 'font-awesome';
-19:
-20:
-21: .navbar {
 
 Backtrace:
 /home/ec2-user/environment/bookers2/app/assets/stylesheets/application.scss:16
@@ -62,8 +48,6 @@ Backtrace:
 @import 'font-awesome';
 
 
-
-
 .navbar {
   width: 100%;
   hight: 10px;
@@ -99,4 +83,8 @@ footer{
 
 .field_with_errors {
   display: contents;
+}
+
+h2 {
+ padding-top: 10px;
 }
